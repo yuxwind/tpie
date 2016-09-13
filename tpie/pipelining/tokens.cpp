@@ -55,6 +55,8 @@ void node_map::link(node_map::ptr target) {
 	}
 	std::move(target->m_pipeBaseForwards.begin(), target->m_pipeBaseForwards.end(),
 			  std::back_inserter(m_pipeBaseForwards));
+	std::move(target->m_ownedNodes.begin(), target->m_ownedNodes.end(),
+			  std::back_inserter(m_ownedNodes));
 	target->m_tokens.clear();
 	target->m_authority = this;
 

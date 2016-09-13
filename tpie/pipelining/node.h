@@ -480,6 +480,7 @@ protected:
 	node(const node & other) = delete;
 	node & operator=(const node & other) = delete;
 
+public:
 	///////////////////////////////////////////////////////////////////////////
 	/// \brief Move constructor. We need to define this explicitly since the
 	/// node_token needs to know its new owner.
@@ -487,6 +488,7 @@ protected:
 	node(node && other);
 	node & operator=(node && other);
 
+protected:
 	///////////////////////////////////////////////////////////////////////////
 	/// \brief Constructor using a given fresh node_token.
 	///////////////////////////////////////////////////////////////////////////

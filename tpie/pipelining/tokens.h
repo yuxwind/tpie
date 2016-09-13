@@ -229,6 +229,11 @@ public:
 		m->m_refCnt--;
 		if (m->m_refCnt == 0) delete m;
 	}
+
+	void add_owned_node(any_noncopyable n) {
+		m_ownedNodes.push_back(std::move(n));
+	}
+
 private:
 	map_t m_tokens;
 	size_t m_refCnt;
@@ -237,6 +242,7 @@ private:
 	datastructuremap_t m_datastructures;
 	forwardmap_t m_pipelineForwards;
 	std::vector<pipe_base_forward_t> m_pipeBaseForwards;
+	std::vector<any_noncopyable> m_ownedNodes;
 
 	size_t out_degree(const relmap_t & map, id_t from, node_relation rel) const;
 	size_t out_degree(const relmap_t & map, id_t from) const;
